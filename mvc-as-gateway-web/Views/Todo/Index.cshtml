@@ -1,0 +1,39 @@
+﻿@model mvc_as_gateway_web.Models.Todo.IndexViewModel
+@{
+    ViewBag.Title = "Todo";
+}
+<h2>@ViewBag.Title.</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "Todo")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.TodoList.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.TodoList.FirstOrDefault().Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TodoList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

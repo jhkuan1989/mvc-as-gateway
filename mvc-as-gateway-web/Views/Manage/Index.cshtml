@@ -1,0 +1,31 @@
+﻿@model mvc_as_gateway_web.Models.Manage.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Your Claims Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var claim in Model.Claims)
+        {
+            <dt>@claim.Key</dt>
+            <dd>
+                @if (!string.IsNullOrWhiteSpace(claim.Value))
+                {
+                    <div>
+                        @claim.Value
+                    </div>
+                }
+                else
+                {
+                    @: &nbsp;
+                }
+            </dd>
+        }
+      
+    </dl>
+</div>
